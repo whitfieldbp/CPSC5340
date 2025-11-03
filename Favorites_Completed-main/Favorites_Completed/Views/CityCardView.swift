@@ -36,8 +36,8 @@ struct CityCardView: View {
                         .padding(6)
                         .foregroundStyle(city.isFavorite ? .red : .white)
                         .background(Color.black.opacity(0.35))
-                        
                 }
+                .buttonStyle(.borderless)
             }
             .padding(.horizontal, 30)
             .padding(.bottom, 10)

@@ -17,7 +17,9 @@ struct FavoritesView: View {
                     Section("Favorite Cities") {
                         ForEach(favorites.cities.filter {$0.isFavorite}) { city in
                             CityCardView(city: city)
-                                .overlay(<#_#>, alignment: .topTrailing)
+                                .listRowInsets(.init(top: 8, leading: 12, bottom: 8, trailing: 12))
+                                .listRowBackground(Color.clear)
+                                .listRowSeparator(.hidden)
                         }
                     }
                 }
@@ -36,6 +38,9 @@ struct FavoritesView: View {
                     }
                 }
             }
+            .listStyle(.plain)
+            .navigationTitle("Favorites")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
