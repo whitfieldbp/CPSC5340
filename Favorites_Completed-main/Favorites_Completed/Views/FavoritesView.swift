@@ -17,6 +17,7 @@ struct FavoritesView: View {
                     Section("Favorite Cities") {
                         ForEach(favorites.cities.filter {$0.isFavorite}) { city in
                             CityCardView(city: city)
+                                .overlay(<#_#>, alignment: .topTrailing)
                         }
                     }
                 }
@@ -36,7 +37,10 @@ struct FavoritesView: View {
                 }
             }
         }
+    }
+}
 
 #Preview {
     FavoritesView()
+        .environmentObject(FavoritesViewModel())
 }
