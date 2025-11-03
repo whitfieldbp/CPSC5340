@@ -8,26 +8,22 @@
 import SwiftUI
 
 struct BooksView: View {
-    @EnvironmentObject var vm: FavoritesViewModel
+    @EnvironmentObject var favorites: FavoritesViewModel
     @Binding var searchText: String
     
     var body: some View {
         List {
-            ForEach(vm.filteredBooks(searchText: searchText)) { book in
-                BookRowView(
-                    book: book,
-                            isFavorite: vm.isBookFavorite(book),
-                            onToggle: { vm.toggleFavorite(book)})
+            ForEach(favorites.filteredBooks(searchText: searchText)) { book in
+                BookRowView(book: book)
+            }
         }
-    }
-    }
         .listStyle(.plain)
-        .navigationTitle("Books")
+    }
 }
 
 #Preview {
     NavigationStack {
         BooksView(searchText: .constant(""))
-            .environment(FavoritesViewModel())
+            .environmentObject(FavoritesViewModel())
     }
 }

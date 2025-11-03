@@ -9,21 +9,26 @@ import SwiftUI
 
 struct BookRowView: View {
     let book: BookModel
-    let isFavorite: Bool
-    let onToggle: () -> Void
+    @EnvironmentObject var favorites: FavoritesViewModel
     
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
-                Text(book.bookTitle).font(.headline)
-                Text(book.bookAuthor).font(.subheadline).foregroundStyle(.secondary)
+                Text(book.bookTitle)
+                    .font(.headline)
+                Text(book.bookAuthor)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
         }
         Spacer()
-        Button(action: onToggle) {
-                Image(systemName: isFavorite ? "heart.fill" : "heart")
-                .foregroundStyle(isFavorite ? .red : .secondary)
+            Button(action: {
+                favorites.toggleFavoriteBook(book: book)
+            }) {
+                Image(systemName: book.isFavorite ? "heart.fill" : "heart")
+                    .foregroundColor(book.isFavorite ? .red : .gray)
+                    .imageScale(.large)
             }
-        .buttonStyle(.borderless)
+        .buttonStyle(.plain)
     }
         .padding(.vertical, 4)
     }
