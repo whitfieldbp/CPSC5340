@@ -20,6 +20,8 @@ struct FavoritesView: View {
                                 .listRowInsets(.init(top: 8, leading: 12, bottom: 8, trailing: 12))
                                 .listRowBackground(Color.clear)
                                 .listRowSeparator(.hidden)
+                                .onTapGesture {}
+                                .contentShape(Rectangle())
                         }
                     }
                 }
