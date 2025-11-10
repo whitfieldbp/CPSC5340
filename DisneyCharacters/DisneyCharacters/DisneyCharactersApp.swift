@@ -13,7 +13,8 @@ struct DisneyCharactersApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CharacterListView().environment(object: model)
+            CharacterListView()
+                .environmentObject(model)
         }
     }
 }

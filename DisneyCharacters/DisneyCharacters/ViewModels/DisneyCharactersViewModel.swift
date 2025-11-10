@@ -34,6 +34,6 @@ class DisneyCharactersViewModel : ObservableObject {
 }
 
 struct CharacterResponse: Codable {
-    let data: [Character]
+    let data: [DisneyCharacter]
 }
 
