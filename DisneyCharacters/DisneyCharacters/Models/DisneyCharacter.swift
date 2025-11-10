@@ -8,10 +8,10 @@
 import Foundation
 
 
-struct DisneyCharacters: Codable, Identifiable {
+struct DisneyCharacter: Codable, Identifiable {
     let _id: Int
     let name: String
-    let imageURL: String?
+    let imageUrl: String?
     let films: [String]
     
     var id: Int {

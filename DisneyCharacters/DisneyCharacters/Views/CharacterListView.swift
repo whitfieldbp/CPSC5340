@@ -31,7 +31,7 @@ struct CharacterListView: View {
                     List(viewModel.characters) { character in
                         NavigationLink(destination: CharacterDetailView(character: character)) {
                             HStack(spacing: 12) {
-                                AsyncImage(URL(string: character.imageURL ?? "")) { image in
+                                AsyncImage(url: URL(string: character.imageUrl ?? "")) { image in
                                     image.resizable().scaledToFill()
                                 } placeholder: {
                                     Color.gray.opacity(0.3)

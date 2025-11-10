@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CharacterDetailView: View {
-    let character: Character
+    let character: DisneyCharacter
     
     var body: some View {
         ScrollView {
@@ -44,5 +44,5 @@ struct CharacterDetailView: View {
 }
 
 #Preview {
-    IntroView().enviromentObject(DisneyCharactersViewModel)
+    CharacterDetailView(character: DisneyCharacter(_id: 1, name: "Mickey Mouse", imageUrl: nil, films: ["Fantasia"]))
 }

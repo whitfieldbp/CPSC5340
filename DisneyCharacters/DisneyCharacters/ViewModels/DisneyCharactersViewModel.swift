@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 
 class DisneyCharactersViewModel : ObservableObject {
-    @Published var characters: [Character] = []
+    @Published var characters: [DisneyCharacter] = []
     @Published var isLoading = false
     @Published var errorMessage: String?
     
@@ -37,6 +37,3 @@ struct CharacterResponse: Codable {
     let data: [Character]
 }
 
-#Preview {
-    DisneyCharactersViewModel()
-}
